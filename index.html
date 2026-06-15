@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>Назначения Лихоносова — Илья</title>
 <style>
   :root {
@@ -240,6 +241,22 @@
     box-shadow: var(--shadow);
   }
   .nav a:hover { background: var(--accent-soft); }
+  .nav a.nav-hcg {
+    background: #fef3c7; border-color: #f59e0b; color: #92400e;
+  }
+  .hcg-promo {
+    display: block; text-decoration: none;
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+    color: white; border-radius: 16px; padding: 18px 22px;
+    margin-bottom: 16px; box-shadow: var(--shadow);
+  }
+  .hcg-promo strong { font-size: 1.05rem; }
+  .hcg-promo span { opacity: 0.9; font-size: 0.88rem; display: block; margin-top: 4px; }
+  section.section-hcg {
+    border: 2px solid #2563eb;
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.12);
+  }
+  section.section-hcg h2 { color: #1e40af; font-size: 1.25rem; }
   .sticky-bar {
     display: none;
     position: fixed; bottom: 0; left: 0; right: 0;
@@ -270,114 +287,22 @@
   </div>
 
   <nav class="nav">
+    <a href="#hcg" class="nav-hcg">💉 Как колоть ХГЧ</a>
     <a href="#apteka">🛒 Аптека</a>
     <a href="#raspisanie">⏰ Расписание</a>
-    <a href="#hcg">💉 Как колоть ХГЧ</a>
     <a href="#checklist">✅ Чеклист</a>
     <a href="#pitanie">🥗 Питание</a>
     <a href="#menu">📅 Меню 7 дней</a>
     <a href="#produkty">🛍 Продукты на неделю</a>
   </nav>
 
-  <!-- ХГЧ vs спермограмма -->
-  <div class="alert alert-ok">
-    <strong>ХГЧ — колоть сразу или сначала спермограмма?</strong><br><br>
-    По PDF врача порядок такой:<br>
-    <strong>1)</strong> Начать приём <em>всех</em> препаратов, включая ХГЧ — <strong>сразу</strong>.<br>
-    <strong>2)</strong> Сдать спермограмму — <strong>параллельно</strong>, в эти 4 недели (не «сначала сперма, потом уколы»).<br>
-    Перед спермограммой: <strong>2 дня без секса</strong>, без бани/сауны, без тяжёлых нагрузок, минимум стресса.<br><br>
-    <strong>Анализы крови через 4 недели</strong> — строго <strong>на следующий день после последнего укола ХГЧ</strong>, через 3 часа после пробуждения.
-  </div>
-
-  <!-- Список для аптеки -->
-  <section id="apteka">
-    <h2><span class="dot"></span> Список для аптеки — скопировать и купить</h2>
-    <p>Нажми кнопку — список скопируется. Можно отправить в WhatsApp или показать в аптеке.</p>
-    <div class="copy-box" id="shop-list">Креон 10 000 — 84 капс (на 4 нед × 3 приёма пищи)
-Аденурик 80 мг — 90 таб (3 месяца)
-Гептрал 400 мг — 56 таб (2 раза/день × 4 нед)
-Урсофальк 500 мг — 28 таб
-Омакор (омега-3) 1000 мг — 56 капс (2 раза/день × 4 нед)
-Эзетимиб 10 мг — 28 таб
-Глюкофаж Лонг 1000 мг — 28 таб
-Тирзепатид 2,5 мг — 4 дозы (1 раз/нед × 4 нед) — рецепт
-ФортеДетрим 10 000 МЕ — 28 капс
-Йодомарин 100 мкг — 100 таб (постоянно)
-Прегнил (ХГЧ) 1500 МЕ — 16 ампул + вода для инъекций + шприцы — рецепт
-Аромазин (эксеместан) 25 мг — 16 таб — рецепт
-Инсулиновые шприцы 1 мл — 20 шт (для ХГЧ)
-Спиртовые салфетки — 1 уп</div>
-    <button class="copy-btn" onclick="copyText('shop-list', this)">📋 Скопировать список</button>
-
-    <h3>Отдельно (не в аптеке)</h3>
-    <ul>
-      <li><strong>Спермограмма</strong> — по Крюгеру + МАР-тест + ДНК-фрагментация (записаться в лабораторию)</li>
-      <li><strong>Анализы крови</strong> — через 4 недели, день после последнего ХГЧ</li>
-      <li><strong>FatSecret или YAZIO</strong> — приложение для подсчёта калорий</li>
-    </ul>
-  </section>
-
-  <!-- Расписание по времени суток -->
-  <section id="raspisanie">
-    <h2><span class="dot"></span> Что принимать — по времени суток</h2>
-
-    <h3>☀️ Утро (до / с завтраком)</h3>
-    <table>
-      <tr><th>Препарат</th><th>Доза</th><th>Как</th></tr>
-      <tr><td><strong>Гептрал</strong></td><td>400 мг</td><td>За 30 мин <strong>до</strong> еды</td></tr>
-      <tr><td><strong>Креон</strong></td><td>10 000 ЕД</td><td>С едой</td></tr>
-      <tr><td><strong>Омакор</strong> (омега-3)</td><td>1000 мг</td><td>С едой</td></tr>
-      <tr><td><strong>ФортеДетрим</strong> (вит. D)</td><td>10 000 МЕ</td><td>С едой</td></tr>
-      <tr><td><strong>Аденурик</strong></td><td>80 мг</td><td><strong>После</strong> еды</td></tr>
-      <tr><td><strong>Эзетимиб</strong></td><td>10 мг</td><td>Неважно, до/после еды</td></tr>
-      <tr><td><strong>Йодомарин</strong></td><td>100 мкг</td><td>1 раз в день, время любое</td></tr>
-    </table>
-
-    <h3>🍽 Обед (с едой)</h3>
-    <table>
-      <tr><th>Препарат</th><th>Доза</th><th>Как</th></tr>
-      <tr><td><strong>Креон</strong></td><td>10 000 ЕД</td><td>С едой</td></tr>
-    </table>
-
-    <h3>🌆 Вечер (до / с ужином)</h3>
-    <table>
-      <tr><th>Препарат</th><th>Доза</th><th>Как</th></tr>
-      <tr><td><strong>Гептрал</strong></td><td>400 мг</td><td>За 30 мин <strong>до</strong> еды</td></tr>
-      <tr><td><strong>Креон</strong></td><td>10 000 ЕД</td><td>С едой</td></tr>
-      <tr><td><strong>Омакор</strong> (омега-3)</td><td>1000 мг</td><td>С едой</td></tr>
-    </table>
-
-    <h3>🌙 Ночь (перед сном)</h3>
-    <table>
-      <tr><th>Препарат</th><th>Доза</th><th>Как</th></tr>
-      <tr><td><strong>Урсофальк</strong></td><td>500 мг</td><td>Перед сном</td></tr>
-      <tr><td><strong>Глюкофаж Лонг</strong> (метформин)</td><td>1000 мг</td><td>Перед сном</td></tr>
-    </table>
-
-    <h3>📅 По дням недели</h3>
-    <table>
-      <tr>
-        <th>Препарат</th>
-        <th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th>Вс</th>
-      </tr>
-      <tr>
-        <td><strong>ХГЧ (Прегнил) 1500 МЕ</strong> <span class="tag tag-rx">укол</span></td>
-        <td class="inj">✓</td><td>—</td><td class="inj">✓</td><td>—</td><td class="inj">✓</td><td>—</td><td class="inj">✓</td>
-      </tr>
-      <tr>
-        <td><strong>Аромазин 25 мг</strong> <span class="tag tag-rx">рецепт</span></td>
-        <td class="yes">✓</td><td>—</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td>
-      </tr>
-      <tr>
-        <td><strong>Тирзепатид 2,5 мг</strong> <span class="tag tag-rx">укол</span></td>
-        <td colspan="7" style="text-align:center">1 раз в неделю — выбрать один день (например, понедельник)</td>
-      </tr>
-    </table>
-    <p style="margin-top:12px;font-size:0.88rem">ХГЧ и Аромазин — в один день (пн, ср, пт, вс). Укол ХГЧ подкожно. Тирзепатид — отдельный день, не обязательно совпадает с ХГЧ.</p>
-  </section>
+  <a href="#hcg" class="hcg-promo">
+    <strong>💉 Инструкция: как колоть ХГЧ (Прегнил)</strong>
+    <span>7 шагов · схема живота и бедра · памятка для Насти · нажми сюда</span>
+  </a>
 
   <!-- Как колоть ХГЧ -->
-  <section id="hcg">
+  <section id="hcg" class="section-hcg">
     <h2><span class="dot"></span> Как колоть ХГЧ (Прегнил) — пошагово</h2>
     <p><strong>Да, сам сможешь.</strong> Укол <strong>под кожу</strong> — не в вену. Первый раз попроси в аптеке показать или Настю рядом.</p>
 
@@ -517,6 +442,102 @@
 Чередовать: левый/правый живот.
 После укола в этот же день — Аромазин.</div>
     <button class="copy-btn" onclick="copyText('hcg-guide', this)">📋 Скопировать памятку</button>
+  </section>
+
+  <div class="alert alert-ok">
+    <strong>ХГЧ — колоть сразу или сначала спермограмма?</strong><br><br>
+    По PDF врача порядок такой:<br>
+    <strong>1)</strong> Начать приём <em>всех</em> препаратов, включая ХГЧ — <strong>сразу</strong>.<br>
+    <strong>2)</strong> Сдать спермограмму — <strong>параллельно</strong>, в эти 4 недели (не «сначала сперма, потом уколы»).<br>
+    Перед спермограммой: <strong>2 дня без секса</strong>, без бани/сауны, без тяжёлых нагрузок, минимум стресса.<br><br>
+    <strong>Анализы крови через 4 недели</strong> — строго <strong>на следующий день после последнего укола ХГЧ</strong>, через 3 часа после пробуждения.
+  </div>
+
+  <!-- Список для аптеки -->
+  <section id="apteka">
+    <h2><span class="dot"></span> Список для аптеки — скопировать и купить</h2>
+    <p>Нажми кнопку — список скопируется. Можно отправить в WhatsApp или показать в аптеке.</p>
+    <div class="copy-box" id="shop-list">Креон 10 000 — 84 капс (на 4 нед × 3 приёма пищи)
+Аденурик 80 мг — 90 таб (3 месяца)
+Гептрал 400 мг — 56 таб (2 раза/день × 4 нед)
+Урсофальк 500 мг — 28 таб
+Омакор (омега-3) 1000 мг — 56 капс (2 раза/день × 4 нед)
+Эзетимиб 10 мг — 28 таб
+Глюкофаж Лонг 1000 мг — 28 таб
+Тирзепатид 2,5 мг — 4 дозы (1 раз/нед × 4 нед) — рецепт
+ФортеДетрим 10 000 МЕ — 28 капс
+Йодомарин 100 мкг — 100 таб (постоянно)
+Прегнил (ХГЧ) 1500 МЕ — 16 ампул + вода для инъекций + шприцы — рецепт
+Аромазин (эксеместан) 25 мг — 16 таб — рецепт
+Инсулиновые шприцы 1 мл — 20 шт (для ХГЧ)
+Спиртовые салфетки — 1 уп</div>
+    <button class="copy-btn" onclick="copyText('shop-list', this)">📋 Скопировать список</button>
+
+    <h3>Отдельно (не в аптеке)</h3>
+    <ul>
+      <li><strong>Спермограмма</strong> — по Крюгеру + МАР-тест + ДНК-фрагментация (записаться в лабораторию)</li>
+      <li><strong>Анализы крови</strong> — через 4 недели, день после последнего ХГЧ</li>
+      <li><strong>FatSecret или YAZIO</strong> — приложение для подсчёта калорий</li>
+    </ul>
+  </section>
+
+  <!-- Расписание по времени суток -->
+  <section id="raspisanie">
+    <h2><span class="dot"></span> Что принимать — по времени суток</h2>
+
+    <h3>☀️ Утро (до / с завтраком)</h3>
+    <table>
+      <tr><th>Препарат</th><th>Доза</th><th>Как</th></tr>
+      <tr><td><strong>Гептрал</strong></td><td>400 мг</td><td>За 30 мин <strong>до</strong> еды</td></tr>
+      <tr><td><strong>Креон</strong></td><td>10 000 ЕД</td><td>С едой</td></tr>
+      <tr><td><strong>Омакор</strong> (омега-3)</td><td>1000 мг</td><td>С едой</td></tr>
+      <tr><td><strong>ФортеДетрим</strong> (вит. D)</td><td>10 000 МЕ</td><td>С едой</td></tr>
+      <tr><td><strong>Аденурик</strong></td><td>80 мг</td><td><strong>После</strong> еды</td></tr>
+      <tr><td><strong>Эзетимиб</strong></td><td>10 мг</td><td>Неважно, до/после еды</td></tr>
+      <tr><td><strong>Йодомарин</strong></td><td>100 мкг</td><td>1 раз в день, время любое</td></tr>
+    </table>
+
+    <h3>🍽 Обед (с едой)</h3>
+    <table>
+      <tr><th>Препарат</th><th>Доза</th><th>Как</th></tr>
+      <tr><td><strong>Креон</strong></td><td>10 000 ЕД</td><td>С едой</td></tr>
+    </table>
+
+    <h3>🌆 Вечер (до / с ужином)</h3>
+    <table>
+      <tr><th>Препарат</th><th>Доза</th><th>Как</th></tr>
+      <tr><td><strong>Гептрал</strong></td><td>400 мг</td><td>За 30 мин <strong>до</strong> еды</td></tr>
+      <tr><td><strong>Креон</strong></td><td>10 000 ЕД</td><td>С едой</td></tr>
+      <tr><td><strong>Омакор</strong> (омега-3)</td><td>1000 мг</td><td>С едой</td></tr>
+    </table>
+
+    <h3>🌙 Ночь (перед сном)</h3>
+    <table>
+      <tr><th>Препарат</th><th>Доза</th><th>Как</th></tr>
+      <tr><td><strong>Урсофальк</strong></td><td>500 мг</td><td>Перед сном</td></tr>
+      <tr><td><strong>Глюкофаж Лонг</strong> (метформин)</td><td>1000 мг</td><td>Перед сном</td></tr>
+    </table>
+
+    <h3>📅 По дням недели</h3>
+    <table>
+      <tr>
+        <th>Препарат</th>
+        <th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th>Вс</th>
+      </tr>
+      <tr>
+        <td><strong>ХГЧ (Прегнил) 1500 МЕ</strong> <span class="tag tag-rx">укол</span></td>
+        <td class="inj">✓</td><td>—</td><td class="inj">✓</td><td>—</td><td class="inj">✓</td><td>—</td><td class="inj">✓</td>
+      </tr>
+      <tr>
+        <td><strong>Аромазин 25 мг</strong> <span class="tag tag-rx">рецепт</span></td>
+        <td class="yes">✓</td><td>—</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td>
+      </tr>
+      <tr>
+        <td><strong>Тирзепатид 2,5 мг</strong> <span class="tag tag-rx">укол</span></td>
+        <td colspan="7" style="text-align:center">1 раз в неделю — выбрать один день (например, понедельник)</td>
+      </tr>
+    </table>
+    <p style="margin-top:12px;font-size:0.88rem">ХГЧ и Аромазин — в один день (пн, ср, пт, вс). Укол ХГЧ подкожно. Тирзепатид — отдельный день, не обязательно совпадает с ХГЧ.</p>
   </section>
 
   <!-- Чеклист на день -->
