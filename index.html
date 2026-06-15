@@ -190,6 +190,40 @@
     padding: 12px 14px;
     margin-bottom: 14px;
   }
+  .tag-rx { background: #fef2f2; color: #dc2626; }
+  .step {
+    display: flex; gap: 14px; margin-bottom: 14px;
+    background: #f8fafc; border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px 16px;
+  }
+  .step-num {
+    flex-shrink: 0; width: 32px; height: 32px;
+    background: var(--accent); color: white;
+    border-radius: 50%; font-weight: 700; font-size: 0.9rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step-body { flex: 1; }
+  .step-body strong { color: var(--text); display: block; margin-bottom: 4px; }
+  .step-body p { margin: 0; font-size: 0.88rem; }
+  .diagram-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0;
+  }
+  .diagram-card {
+    background: #f8fafc; border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px; text-align: center;
+  }
+  .diagram-card h4 { font-size: 0.9rem; margin-bottom: 10px; color: var(--text); }
+  .diagram-card svg { max-width: 220px; height: auto; margin: 0 auto; display: block; }
+  .legend { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 10px; font-size: 0.78rem; }
+  .legend span { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); }
+  .dot-green { width: 10px; height: 10px; border-radius: 50%; background: #22c55e; }
+  .dot-red { width: 10px; height: 10px; border-radius: 50%; background: #ef4444; }
+  .nastya-box {
+    background: #eff6ff; border: 1px solid #93c5fd;
+    border-radius: 12px; padding: 16px 18px; margin: 16px 0;
+  }
+  .nastya-box h4 { color: #1e40af; margin-bottom: 8px; font-size: 0.95rem; }
+  .dont-list li { color: #991b1b; }
   .nav {
     display: flex; flex-wrap: wrap; gap: 8px;
     margin-bottom: 16px;
@@ -220,6 +254,7 @@
     section { padding: 18px 16px; }
     table { font-size: 0.8rem; }
     th, td { padding: 8px; }
+    .diagram-grid { grid-template-columns: 1fr; }
     .sticky-bar { display: block; }
     body { padding-bottom: 88px; }
   }
@@ -237,6 +272,7 @@
   <nav class="nav">
     <a href="#apteka">🛒 Аптека</a>
     <a href="#raspisanie">⏰ Расписание</a>
+    <a href="#hcg">💉 Как колоть ХГЧ</a>
     <a href="#checklist">✅ Чеклист</a>
     <a href="#pitanie">🥗 Питание</a>
     <a href="#menu">📅 Меню 7 дней</a>
@@ -338,6 +374,149 @@
       </tr>
     </table>
     <p style="margin-top:12px;font-size:0.88rem">ХГЧ и Аромазин — в один день (пн, ср, пт, вс). Укол ХГЧ подкожно. Тирзепатид — отдельный день, не обязательно совпадает с ХГЧ.</p>
+  </section>
+
+  <!-- Как колоть ХГЧ -->
+  <section id="hcg">
+    <h2><span class="dot"></span> Как колоть ХГЧ (Прегнил) — пошагово</h2>
+    <p><strong>Да, сам сможешь.</strong> Укол <strong>под кожу</strong> — не в вену. Первый раз попроси в аптеке показать или Настю рядом.</p>
+
+    <div class="nastya-box">
+      <h4>👩 Настя — чем помочь</h4>
+      <ul>
+        <li>Первый раз: держать ампулу, подать шприц, успокоить</li>
+        <li>Напомнить в <strong>пн / ср / пт / вс</strong> про укол + таблетку Аромазина 25 мг</li>
+        <li>Чередовать место укола (левый/правый живот)</li>
+        <li>Утилизировать иглу в банку с крышкой — не в мусорку</li>
+      </ul>
+    </div>
+
+    <h3>Что нужно на один укол</h3>
+    <ul>
+      <li>Ампула <strong>Прегнил 1500 МЕ</strong> (порошок) + <strong>растворитель</strong> из комплекта</li>
+      <li>Инсулиновый шприц <strong>1 мл</strong> (игла 29–31G — тонкая)</li>
+      <li>2 спиртовые салфетки</li>
+      <li>После укола: <strong>Аромазин 25 мг</strong> таблетка (не укол!)</li>
+    </ul>
+
+    <h3>Куда колоть</h3>
+    <div class="diagram-grid">
+      <div class="diagram-card">
+        <h4>Живот (основной вариант)</h4>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="110" rx="70" ry="80" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
+          <circle cx="100" cy="95" r="8" fill="#cbd5e1" stroke="#64748b"/>
+          <text x="100" y="99" text-anchor="middle" font-size="7" fill="#64748b">пупок</text>
+          <circle cx="65" cy="120" r="12" fill="#22c55e" opacity="0.85"/>
+          <circle cx="135" cy="120" r="12" fill="#22c55e" opacity="0.85"/>
+          <circle cx="65" cy="155" r="12" fill="#22c55e" opacity="0.85"/>
+          <circle cx="135" cy="155" r="12" fill="#22c55e" opacity="0.85"/>
+          <circle cx="100" cy="95" r="18" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 3"/>
+          <text x="100" y="185" text-anchor="middle" font-size="9" fill="#64748b">5–10 см от пупка</text>
+        </svg>
+        <div class="legend">
+          <span><i class="dot-green"></i> можно колоть</span>
+          <span><i class="dot-red"></i> нельзя (пупок)</span>
+        </div>
+      </div>
+      <div class="diagram-card">
+        <h4>Бедро (запасной вариант)</h4>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path d="M70 40 L130 40 L145 190 L55 190 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
+          <circle cx="100" cy="100" r="28" fill="#22c55e" opacity="0.85"/>
+          <text x="100" y="104" text-anchor="middle" font-size="9" fill="white" font-weight="bold">сюда</text>
+          <text x="100" y="185" text-anchor="middle" font-size="9" fill="#64748b">наружная сторона бедра</text>
+        </svg>
+        <div class="legend">
+          <span>Защипнуть кожу, угол 45–90°</span>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.88rem"><strong>Чередуй места</strong> каждый укол — не в одну точку. Не колоть в красное, синее или воспалённое место.</p>
+
+    <h3>Пошаговая инструкция</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>Вымыть руки</strong>
+          <p>Достать ампулу с порошком, ампулу с водой для инъекций, шприц, салфетки. Стол чистый, хорошее освещение.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>Протереть горлышки ампул салфеткой</strong>
+          <p>Открыть обе ампулы (осторожно — стекло). Набрать растворитель в шприц.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>Развести порошок</strong>
+          <p>Влить воду в ампулу с порошком <em>медленно, по стенке</em>. Покрутить — порошок должен полностью раствориться (прозрачная жидкость). Точный объём воды — <strong>в инструкции к упаковке</strong>.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>Набрать в шприц 1500 МЕ</strong>
+          <p>Обычно это <strong>вся разведённая ампула</strong>. Игла вверх → постучать → выдавить каплю — убрать пузырьки.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <strong>Подготовить место укола</strong>
+          <p>Протереть кожу салфеткой, дать высохнуть 10 сек. Защипнуть кожу складкой.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <strong>Сделать укол</strong>
+          <p>Иглу ввести под углом 45–90° — <strong>под кожу</strong>, не глубоко. Медленно нажать поршень (10–20 сек). Достать иглу, прижать салфеткой 30 сек, не тереть.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-body">
+          <strong>После укола</strong>
+          <p>Выбросить иглу в плотную ёмкость. Принять <strong>Аромазин 25 мг</strong> таблетку. Лёгкое покраснение — норма.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>❌ Нельзя</h3>
+    <ul class="dont-list">
+      <li>Колоть в пупок или одно и то же место каждый раз</li>
+      <li>Использовать иглу повторно</li>
+      <li>Хранить разведённый раствор неделями — только по инструкции (обычно сразу или 1–2 дня в холодильнике)</li>
+      <li>Колоть, если сильная боль, температура, нарастающее покраснение</li>
+    </ul>
+
+    <h3>⚠️ Когда звонить врачу</h3>
+    <ul>
+      <li>Уплотнение или сильное покраснение больше 2–3 дней</li>
+      <li>Одышка, отёки, сыпь по всему телу</li>
+    </ul>
+
+    <h3>📋 Краткая памятка — скопировать</h3>
+    <div class="copy-box" id="hcg-guide">УКОЛ ХГЧ (ПРЕГНИЛ) — ПН / СР / ПТ / ВС
+
+1. Вымыть руки
+2. Открыть ампулу порошка + растворитель
+3. Набрать воду в шприц → влить в порошок → растворить
+4. Набрать 1500 МЕ в шприц, убрать пузырьки
+5. Протереть живот (5–10 см от пупка) или бедро
+6. Защипнуть кожу → укол под кожу → медленно ввести
+7. Прижать салфеткой 30 сек
+8. Иглу в банку для утилизации
+9. Таблетка Аромазин 25 мг
+
+Чередовать: левый/правый живот.
+После укола в этот же день — Аромазин.</div>
+    <button class="copy-btn" onclick="copyText('hcg-guide', this)">📋 Скопировать памятку</button>
   </section>
 
   <!-- Чеклист на день -->
