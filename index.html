@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Назначения Лихоносова — Илья</title>
+<style>
+  :root {
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --text: #1a2332;
+    --muted: #5c6b80;
+    --accent: #2563eb;
+    --accent-soft: #dbeafe;
+    --ok: #059669;
+    --ok-bg: #ecfdf5;
+    --warn: #d97706;
+    --warn-bg: #fffbeb;
+    --bad: #dc2626;
+    --bad-bg: #fef2f2;
+    --border: #e2e8f0;
+    --shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    padding: 24px 16px 64px;
+  }
+  .container { max-width: 960px; margin: 0 auto; }
+  .hero {
+    background: linear-gradient(135deg, #065f46 0%, #059669 55%, #10b981 100%);
+    color: white;
+    border-radius: 20px;
+    padding: 32px 36px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+  }
+  .hero h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; }
+  .hero p { opacity: 0.92; font-size: 0.95rem; }
+  section {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  h2 .dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+  }
+  h3 { font-size: 0.92rem; font-weight: 600; margin: 18px 0 10px; color: var(--muted); }
+  p, li { color: var(--muted); }
+  ul { padding-left: 20px; margin-bottom: 12px; }
+  li { margin-bottom: 6px; }
+  .alert {
+    background: var(--warn-bg);
+    border: 1px solid #fcd34d;
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+    color: #92400e;
+    font-size: 0.92rem;
+  }
+  .alert strong { color: #78350f; }
+  .alert-ok {
+    background: var(--ok-bg);
+    border-color: #6ee7b7;
+    color: #065f46;
+  }
+  .copy-box {
+    background: #0f172a;
+    color: #e2e8f0;
+    border-radius: 12px;
+    padding: 18px 20px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    margin: 12px 0;
+    position: relative;
+  }
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 4px;
+  }
+  .copy-btn:hover { background: #1d4ed8; }
+  .copy-btn.copied { background: var(--ok); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin: 12px 0;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #f8fafc; font-weight: 600; color: var(--text); }
+  td { color: var(--muted); }
+  .yes { background: #ecfdf5; color: #065f46; font-weight: 600; text-align: center; }
+  .inj { background: #fef3c7; color: #92400e; font-weight: 600; text-align: center; }
+  .macros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .macro {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+  .macro .val { font-size: 1.6rem; font-weight: 700; color: var(--accent); }
+  .macro .lbl { font-size: 0.82rem; color: var(--muted); margin-top: 4px; }
+  .day-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    background: #fafbfc;
+  }
+  .day-card h4 {
+    font-size: 1rem;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .meal { margin-bottom: 10px; }
+  .meal-time { font-weight: 600; color: var(--text); font-size: 0.9rem; }
+  .tag {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-left: 6px;
+  }
+  .tag-rx { background: #fef2f2; color: #dc2626; }
+  .nav {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 16px;
+  }
+  .nav a {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 999px;
+    box-shadow: var(--shadow);
+  }
+  .nav a:hover { background: var(--accent-soft); }
+  .sticky-bar {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: rgba(255,255,255,0.96);
+    border-top: 1px solid var(--border);
+    padding: 12px 16px;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+  .sticky-bar .copy-btn { width: 100%; justify-content: center; margin: 0; }
+  @media (max-width: 640px) {
+    section { padding: 18px 16px; }
+    table { font-size: 0.8rem; }
+    th, td { padding: 8px; }
+    .sticky-bar { display: block; }
+    body { padding-bottom: 88px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="hero">
+    <h1>💊 Назначения — Лихоносов</h1>
+    <p>Илья Олейников · июнь 2026 · курс 4 недели</p>
+    <p style="margin-top:10px;font-size:0.9rem;opacity:0.95">👋 Настя: нажми «Скопировать список» → в аптеку. Всё в одном файле, интернет не нужен.</p>
+  </div>
+
+  <nav class="nav">
+    <a href="#apteka">🛒 Аптека</a>
+    <a href="#raspisanie">⏰ Расписание</a>
+    <a href="#checklist">✅ Чеклист</a>
+    <a href="#pitanie">🥗 Питание</a>
+    <a href="#menu">📅 Меню 7 дней</a>
+    <a href="#produkty">🛍 Продукты</a>
+  </nav>
+
+  <!-- ХГЧ vs спермограмма -->
+  <div class="alert alert-ok">
+    <strong>ХГЧ — колоть сразу или сначала спермограмма?</strong><br><br>
+    По PDF врача порядок такой:<br>
+    <strong>1)</strong> Начать приём <em>всех</em> препаратов, включая ХГЧ — <strong>сразу</strong>.<br>
+    <strong>2)</strong> Сдать спермограмму — <strong>параллельно</strong>, в эти 4 недели (не «сначала сперма, потом уколы»).<br>
+    Перед спермограммой: <strong>2 дня без секса</strong>, без бани/сауны, без тяжёлых нагрузок, минимум стресса.<br><br>
+    <strong>Анализы крови через 4 недели</strong> — строго <strong>на следующий день после последнего укола ХГЧ</strong>, через 3 часа после пробуждения.
+  </div>
+
+  <!-- Список для аптеки -->
+  <section id="apteka">
+    <h2><span class="dot"></span> Список для аптеки — скопировать и купить</h2>
+    <p>Нажми кнопку — список скопируется. Можно отправить в WhatsApp или показать в аптеке.</p>
+    <div class="copy-box" id="shop-list">Креон 10 000 — 84 капс (на 4 нед × 3 приёма пищи)
+Аденурик 80 мг — 90 таб (3 месяца)
+Гептрал 400 мг — 56 таб (2 раза/день × 4 нед)
+Урсофальк 500 мг — 28 таб
+Омакор (омега-3) 1000 мг — 56 капс (2 раза/день × 4 нед)
+Эзетимиб 10 мг — 28 таб
+Глюкофаж Лонг 1000 мг — 28 таб
+Тирзепатид 2,5 мг — 4 дозы (1 раз/нед × 4 нед) — рецепт
+ФортеДетрим 10 000 МЕ — 28 капс
+Йодомарин 100 мкг — 100 таб (постоянно)
+Прегнил (ХГЧ) 1500 МЕ — 16 ампул + вода для инъекций + шприцы — рецепт
+Аромазин (эксеместан) 25 мг — 16 таб — рецепт
+Инсулиновые шприцы 1 мл — 20 шт (для ХГЧ)
+Спиртовые салфетки — 1 уп</div>
+    <button class="copy-btn" onclick="copyText('shop-list', this)">📋 Скопировать список</button>
+
+    <h3>Отдельно (не в аптеке)</h3>
+    <ul>
+      <li><strong>Спермограмма</strong> — по Крюгеру + МАР-тест + ДНК-фрагментация (записаться в лабораторию)</li>
+      <li><strong>Анализы крови</strong> — через 4 недели, день после последнего ХГЧ</li>
+      <li><strong>FatSecret или YAZIO</strong> — приложение для подсчёта калорий</li>
+    </ul>
+  </section>
+
+  <!-- Расписание по времени суток -->
+  <section id="raspisanie">
+    <h2><span class="dot"></span> Что принимать — по времени суток</h2>
+
+    <h3>☀️ Утро (до / с завтраком)</h3>
+    <table>
+      <tr><th>Препарат</th><th>Доза</th><th>Как</th></tr>
+      <tr><td><strong>Гептрал</strong></td><td>400 мг</td><td>За 30 мин <strong>до</strong> еды</td></tr>
+      <tr><td><strong>Креон</strong></td><td>10 000 ЕД</td><td>С едой</td></tr>
+      <tr><td><strong>Омакор</strong> (омега-3)</td><td>1000 мг</td><td>С едой</td></tr>
+      <tr><td><strong>ФортеДетрим</strong> (вит. D)</td><td>10 000 МЕ</td><td>С едой</td></tr>
+      <tr><td><strong>Аденурик</strong></td><td>80 мг</td><td><strong>После</strong> еды</td></tr>
+      <tr><td><strong>Эзетимиб</strong></td><td>10 мг</td><td>Неважно, до/после еды</td></tr>
+      <tr><td><strong>Йодомарин</strong></td><td>100 мкг</td><td>1 раз в день, время любое</td></tr>
+    </table>
+
+    <h3>🍽 Обед (с едой)</h3>
+    <table>
+      <tr><th>Препарат</th><th>Доза</th><th>Как</th></tr>
+      <tr><td><strong>Креон</strong></td><td>10 000 ЕД</td><td>С едой</td></tr>
+    </table>
+
+    <h3>🌆 Вечер (до / с ужином)</h3>
+    <table>
+      <tr><th>Препарат</th><th>Доза</th><th>Как</th></tr>
+      <tr><td><strong>Гептрал</strong></td><td>400 мг</td><td>За 30 мин <strong>до</strong> еды</td></tr>
+      <tr><td><strong>Креон</strong></td><td>10 000 ЕД</td><td>С едой</td></tr>
+      <tr><td><strong>Омакор</strong> (омега-3)</td><td>1000 мг</td><td>С едой</td></tr>
+    </table>
+
+    <h3>🌙 Ночь (перед сном)</h3>
+    <table>
+      <tr><th>Препарат</th><th>Доза</th><th>Как</th></tr>
+      <tr><td><strong>Урсофальк</strong></td><td>500 мг</td><td>Перед сном</td></tr>
+      <tr><td><strong>Глюкофаж Лонг</strong> (метформин)</td><td>1000 мг</td><td>Перед сном</td></tr>
+    </table>
+
+    <h3>📅 По дням недели</h3>
+    <table>
+      <tr>
+        <th>Препарат</th>
+        <th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th>Вс</th>
+      </tr>
+      <tr>
+        <td><strong>ХГЧ (Прегнил) 1500 МЕ</strong> <span class="tag tag-rx">укол</span></td>
+        <td class="inj">✓</td><td>—</td><td class="inj">✓</td><td>—</td><td class="inj">✓</td><td>—</td><td class="inj">✓</td>
+      </tr>
+      <tr>
+        <td><strong>Аромазин 25 мг</strong> <span class="tag tag-rx">рецепт</span></td>
+        <td class="yes">✓</td><td>—</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td>
+      </tr>
+      <tr>
+        <td><strong>Тирзепатид 2,5 мг</strong> <span class="tag tag-rx">укол</span></td>
+        <td colspan="7" style="text-align:center">1 раз в неделю — выбрать один день (например, понедельник)</td>
+      </tr>
+    </table>
+    <p style="margin-top:12px;font-size:0.88rem">ХГЧ и Аромазин — в один день (пн, ср, пт, вс). Укол ХГЧ подкожно. Тирзепатид — отдельный день, не обязательно совпадает с ХГЧ.</p>
+  </section>
+
+  <!-- Чеклист на день -->
+  <section id="checklist">
+    <h2><span class="dot"></span> Чеклист на каждый день</h2>
+    <div class="copy-box" id="daily-check">УТРО (до/с завтраком):
+□ Гептрал 400 мг — ДО еды
+□ Креон 10 000 — с едой
+□ Омакор 1000 мг — с едой
+□ ФортеДетрим 10 000 МЕ — с едой
+□ Аденурик 80 мг — ПОСЛЕ еды
+□ Эзетимиб 10 мг
+□ Йодомарин 100 мкг
+
+ОБЕД:
+□ Креон 10 000 — с едой
+
+ВЕЧЕР (до/с ужином):
+□ Гептрал 400 мг — ДО еды
+□ Креон 10 000 — с едой
+□ Омакор 1000 мг — с едой
+
+НОЧЬ:
+□ Урсофальк 500 мг
+□ Глюкофаж Лонг 1000 мг
+
+ПН / СР / ПТ / ВС дополнительно:
+□ ХГЧ 1500 МЕ — укол
+□ Аромазин 25 мг — таблетка
+
+1 РАЗ В НЕДЕЛЮ:
+□ Тирзепатид 2,5 мг — укол</div>
+    <button class="copy-btn" onclick="copyText('daily-check', this)">📋 Скопировать чеклист</button>
+  </section>
+
+  <!-- Питание -->
+  <section id="pitanie">
+    <h2><span class="dot"></span> Питание — целевые цифры</h2>
+    <div class="macros">
+      <div class="macro"><div class="val">2156</div><div class="lbl">ккал / день</div></div>
+      <div class="macro"><div class="val">198</div><div class="lbl">белок, г</div></div>
+      <div class="macro"><div class="val">110</div><div class="lbl">жиры, г</div></div>
+      <div class="macro"><div class="val">94</div><div class="lbl">углеводы, г</div></div>
+      <div class="macro"><div class="val">3960</div><div class="lbl">вода, мл</div></div>
+    </div>
+
+    <h3>Обязательные правила</h3>
+    <ul>
+      <li><strong>Овощи</strong> — минимум 200 г в день (в калории не считать, кроме авокадо, свёклы, моркови, картофеля)</li>
+      <li><strong>Соль</strong> — не больше 7 г в сутки</li>
+      <li><strong>Мясо, рыба, птица</strong> — взвешивать в готовом виде</li>
+      <li><strong>Крупы, овощи</strong> — взвешивать в сыром виде</li>
+      <li><strong>Углеводы по времени:</strong> утро — короткие (хлеб, картофель), обед — длинные (крупы, макароны), вечер — овощи</li>
+      <li><strong>Жиры:</strong> 70% ненасыщенные (рыба, омега-3, масло, орехи, авокадо), 30% насыщенные (яйца, молочка, мясо)</li>
+      <li><strong>Углеводы:</strong> 30% сахар/фрукты, 70% крахмалистые (рис, гречка, макароны, хлеб без сахара)</li>
+      <li><strong>Омакор</strong> — 1 капсула = 1 г жира (учитывать в FatSecret/YAZIO)</li>
+      <li><strong>Взвешиваться</strong> — 1 раз в неделю, утром натощак после туалета</li>
+      <li><strong>Калории</strong> — считать в FatSecret или YAZIO, отчёты на почту врачу</li>
+    </ul>
+
+    <h3>Кардио</h3>
+    <p>60 минут × 5 раз в неделю, пульс <strong>119–139</strong> (зона 2). Силовые — по своему графику, но кардио приоритет.</p>
+  </section>
+
+  <!-- Меню 7 дней -->
+  <section id="menu">
+    <h2><span class="dot"></span> Меню на 7 дней (из PDF врача)</h2>
+    <p style="margin-bottom:16px">Пример рациона врача: ~1900–2000 ккал. Твоя цель — <strong>2156 ккал (Б198 / Ж110 / У94)</strong>. Можно добавить порцию белка или крупы, чтобы добрать до целевых цифр. Время приёмов — ориентир, можно сдвигать.</p>
+
+    <div class="day-card">
+      <h4>🔷 День 1</h4>
+      <div class="meal">
+        <div class="meal-time">Приём 1 — 12:00</div>
+        Бутерброд с лососем и авокадо — 220 г (80 г лосося, 80 г авокадо, 60 г хлеба)<br>
+        Салат из огурцов и помидоров с оливковым маслом (3 ст. л.) — 200 г
+      </div>
+      <div class="meal">
+        <div class="meal-time">Приём 2 — 15:00</div>
+        Творог обезжиренный — 350 г<br>
+        Банан — 150 г
+      </div>
+      <div class="meal">
+        <div class="meal-time">Приём 3 — 18:00</div>
+        Индейка на гриле — 300 г<br>
+        Бурый рис (сухой вес) — 80 г<br>
+        Брокколи на пару — 300 г
+      </div>
+    </div>
+
+    <div class="day-card">
+      <h4>🔷 День 2</h4>
+      <div class="meal">
+        <div class="meal-time">Приём 1 — 12:00</div>
+        Овсяная каша на воде — 100 г (сухой вес)<br>
+        Салат из помидоров и зелени с оливковым маслом (3 ст. л.) — 200 г
+      </div>
+      <div class="meal">
+        <div class="meal-time">Приём 2 — 15:00</div>
+        Греческий йогурт — 300 г<br>
+        Банан — 150 г
+      </div>
+      <div class="meal">
+        <div class="meal-time">Приём 3 — 18:00</div>
+        Треска на гриле — 300 г<br>
+        Киноа (сухой вес) — 80 г<br>
+        Цветная капуста на пару — 300 г
+      </div>
+    </div>
+
+    <div class="day-card">
+      <h4>🔷 День 3</h4>
+      <div class="meal">
+        <div class="meal-time">Приём 1 — 12:00</div>
+        Бутерброд с тунцом и авокадо — 220 г (80 г тунца, 80 г авокадо, 60 г хлеба)<br>
+        Салат из огурцов и помидоров с оливковым маслом (3 ст. л.) — 200 г
+      </div>
+      <div class="meal">
+        <div class="meal-time">Приём 2 — 15:00</div>
+        Творог обезжиренный — 350 г<br>
+        Персик — 150 г
+      </div>
+      <div class="meal">
+        <div class="meal-time">Приём 3 — 18:00</div>
+        Куриное филе на гриле — 300 г<br>
+        Бурый рис (сухой вес) — 80 г<br>
+        Тушёные овощи (кабачки, морковь) — 300 г
+      </div>
+    </div>
+
+    <div class="day-card">
+      <h4>🔷 День 4</h4>
+      <div class="meal">
+        <div class="meal-time">Приём 1 — 12:00</div>
+        Пшённая каша на воде — 100 г (сухой вес)<br>
+        Салат из помидоров и зелени с оливковым маслом (3 ст. л.) — 200 г
+      </div>
+      <div class="meal">
+        <div class="meal-time">Приём 2 — 15:00</div>
+        Греческий йогурт — 300 г<br>
+        Яблоко — 150 г
+      </div>
+      <div class="meal">
+        <div class="meal-time">Приём 3 — 18:00</div>
+        Индейка на гриле — 300 г<br>
+        Киноа (сухой вес) — 80 г<br>
+        Цветная капуста на пару — 300 г
+      </div>
+    </div>
+
+    <div class="day-card">
+      <h4>🔷 День 5</h4>
+      <div class="meal">
+        <div class="meal-time">Приём 1 — 12:00</div>
+        Бутерброд с отварной говядиной и авокадо — 220 г (80 г говядины, 80 г авокадо, 60 г хлеба)<br>
+        Салат из огурцов и помидоров с оливковым маслом (3 ст. л.) — 200 г
+      </div>
+      <div class="meal">
+        <div class="meal-time">Приём 2 — 15:00</div>
+        Творог обезжиренный — 350 г<br>
+        Персик — 150 г
+      </div>
+      <div class="meal">
+        <div class="meal-time">Приём 3 — 18:00</div>
+        Лосось на гриле — 300 г<br>
+        Бурый рис (сухой вес) — 80 г<br>
+        Брокколи на пару — 300 г
+      </div>
+    </div>
+
+    <div class="day-card">
+      <h4>🔷 День 6</h4>
+      <div class="meal">
+        <div class="meal-time">Приём 1 — 12:00</div>
+        Рисовая каша на воде — 100 г (сухой вес)<br>
+        Салат из помидоров и зелени с оливковым маслом (3 ст. л.) — 200 г
+      </div>
+      <div class="meal">
+        <div class="meal-time">Приём 2 — 15:00</div>
+        Греческий йогурт — 300 г<br>
+        Яблоко — 150 г
+      </div>
+      <div class="meal">
+        <div class="meal-time">Приём 3 — 18:00</div>
+        Треска на гриле — 300 г<br>
+        Киноа (сухой вес) — 80 г<br>
+        Тушёные овощи (кабачки, морковь) — 300 г
+      </div>
+    </div>
+
+    <div class="day-card">
+      <h4>🔷 День 7</h4>
+      <div class="meal">
+        <div class="meal-time">Приём 1 — 12:00</div>
+        Бутерброд с лососем и авокадо — 220 г (80 г лосося, 80 г авокадо, 60 г хлеба)<br>
+        Салат из огурцов и помидоров с оливковым маслом (3 ст. л.) — 200 г
+      </div>
+      <div class="meal">
+        <div class="meal-time">Приём 2 — 15:00</div>
+        Творог обезжиренный — 350 г<br>
+        Банан — 150 г
+      </div>
+      <div class="meal">
+        <div class="meal-time">Приём 3 — 18:00</div>
+        Индейка на гриле — 300 г<br>
+        Бурый рис (сухой вес) — 80 г<br>
+        Брокколи на пару — 300 г
+      </div>
+    </div>
+  </section>
+
+  <!-- Продукты для меню -->
+  <section id="produkty">
+    <h2><span class="dot"></span> Продукты для меню — скопировать</h2>
+    <div class="copy-box" id="food-list">Рыба: лосось, треска, тунец (консерва или свежий)
+Птица: индейка, куриное филе
+Мясо: говядина отварная
+Творог обезжиренный — ~2.5 кг на неделю
+Греческий йогурт — ~1.8 кг
+Крупы: бурый рис, овсянка, пшено, киноа (сухие)
+Хлеб — ~420 г
+Авокадо — ~560 г
+Овощи: огурцы, помидоры, брокколи, цветная капуста, кабачки, морковь, зелень
+Фрукты: бананы, персики, яблоки
+Оливковое масло
+Яйца (по желанию, для разнообразия)</div>
+    <button class="copy-btn" onclick="copyText('food-list', this)">📋 Скопировать продукты</button>
+  </section>
+
+</div>
+
+<div class="sticky-bar">
+  <button class="copy-btn" onclick="copyText('shop-list', this)">📋 Скопировать список для аптеки</button>
+</div>
+
+<script>
+function copyText(id, btn) {
+  const text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = '✓ Скопировано!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = '✓ Скопировано!';
+  });
+}
+</script>
+</body>
+</html>
